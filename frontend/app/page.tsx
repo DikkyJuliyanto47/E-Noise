@@ -14,6 +14,7 @@ import ConfidenceGauge from "@/components/ui/ConfidenceGauge";
 import HistoryControls from "@/components/ui/HistoryControls";
 import CoffeeStats from "@/components/ui/CoffeeStats";
 import ToastHost, { ToastItem } from "@/components/ui/ToastHost";
+import ChartsPanel from "@/components/ui/ChartsPanel";
 
 export default function Page() {
   const [mounted, setMounted] = useState(false);
@@ -374,6 +375,9 @@ export default function Page() {
               </div>
             </Card>
 
+            {/* ✅ CHARTS */}
+            <ChartsPanel data={displayHistory} latest={latest} />
+
             {/* SIDE CARDS 2 KOL */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card className="p-5 space-y-4">
@@ -416,6 +420,37 @@ export default function Page() {
                 <p className="text-[11px] sm:text-xs text-slate-400 mt-3">
                   Badge mengikuti hasil deteksi realtime.
                 </p>
+                <div className="mt-4 space-y-4 text-xs sm:text-sm">
+                  <div className="flex gap-3 items-start">
+                    <Badge type="arabica" />
+                    <p className="text-slate-300 leading-relaxed">
+                      Memiliki aroma <b>fruity</b> dan <b>floral</b> dengan
+                      tingkat keasaman tinggi. Pola gas cenderung ringan dan
+                      kompleks.
+                    </p>
+                  </div>
+
+                  <div className="flex gap-3 items-start">
+                    <Badge type="robusta" />
+                    <p className="text-slate-300 leading-relaxed">
+                      Aroma <b>earthy</b>, <b>pahit</b>, dan kuat. Umumnya
+                      menghasilkan respons sensor gas yang lebih intens.
+                    </p>
+                  </div>
+
+                  <div className="flex gap-3 items-start">
+                    <Badge type="excelsa" />
+                    <p className="text-slate-300 leading-relaxed">
+                      Aroma <b>spicy</b> dan <b>smoky</b> dengan karakter unik
+                      dan kompleks, berada di antara Arabica dan Robusta.
+                    </p>
+                  </div>
+
+                  <p className="pt-2 text-[11px] text-slate-500">
+                    Model machine learning mempelajari pola gas dari karakter
+                    aroma ini untuk menentukan jenis kopi.
+                  </p>
+                </div>
               </Card>
             </div>
 
